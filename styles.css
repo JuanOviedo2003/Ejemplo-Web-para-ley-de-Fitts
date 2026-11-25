@@ -1,0 +1,918 @@
+/* ==========================================================================
+   VERDE & CO. — Clean Pure-White E-Commerce UI & Fitts's Law Testbed
+   Typography: Plus Jakarta Sans (Display/Headings) + Inter (UI/Body)
+   Palette: Pure White Canvas (#ffffff), Neutral Grays (#f8fafc / #e5e7eb), Forest Green Accents (#146c43)
+   Viewport: 100vw x 100vh locked (overflow: hidden) for constant Fitts distances
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  --bg-canvas: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-neutral-subtle: #f8fafc;
+  --bg-neutral-hover: #f1f5f9;
+
+  --brand-primary: #146c43;
+  --brand-primary-hover: #0f5334;
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  --border-light: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  --shadow-xs: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-sm: 0 4px 12px rgba(17, 24, 39, 0.06);
+  --shadow-card: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. LANDING PAGE (index.html) — Only the white box containing the 5 tasks
+   ========================================================================== */
+.hub-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: #ffffff;
+}
+
+.hub-container {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  max-width: 780px;
+  width: 100%;
+  box-shadow: var(--shadow-card);
+}
+
+.hub-task-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.hub-task-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px 14px;
+  transition: all 0.15s ease;
+  color: var(--text-primary);
+}
+
+.hub-task-card:hover {
+  border-color: var(--brand-primary);
+  background: var(--bg-neutral-subtle);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.hub-task-card:active {
+  transform: translateY(0);
+}
+
+.hub-task-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-neutral-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: all 0.15s ease;
+}
+
+.hub-task-card:hover .hub-task-number {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.hub-task-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   2. E-COMMERCE STOREFRONT LAYOUT (tarea1.html .. tarea5.html)
+   ========================================================================== */
+.store-app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+}
+
+/* --- Top E-Commerce Navigation Bar --- */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  z-index: 20;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-back-hub {
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.14s ease;
+}
+
+.btn-back-hub:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.store-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.brand-leaf-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Search Bar */
+.navbar-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-neutral-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px 4px 14px;
+  width: 390px;
+}
+
+.search-placeholder-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Top Right Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- Main 3-Column Store Grid --- */
+.store-workspace {
+  display: grid;
+  grid-template-columns: 245px 1fr 290px;
+  gap: 18px;
+  padding: 16px 28px 86px 28px;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Department Navigation & Vertical Promo Banner
+   ========================================================================== */
+.col-departments {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.section-overline {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.dept-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dept-item-btn {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.dept-item-btn:hover {
+  background: var(--bg-neutral-subtle);
+  color: var(--text-primary);
+}
+
+.dept-item-btn.is-active {
+  background: var(--bg-neutral-subtle);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Vertical Member Promo Block (Contains TARGET T2: Tall Height Button 48x200px) */
+.member-vertical-card {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin: 10px 0;
+  flex: 1;
+  min-height: 0;
+  max-height: 204px;
+}
+
+/* TARGET T2: High Height, Narrow Width Vertical Button */
+.btn-tall-voucher {
+  width: 48px;
+  height: 100%;
+  min-height: 185px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  border: 1px solid var(--brand-primary-hover);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-tall-voucher:hover {
+  background: var(--brand-primary-hover);
+}
+
+.btn-tall-voucher:active {
+  transform: scale(0.97);
+}
+
+.vertical-voucher-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.member-promo-details {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.promo-headline {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.promo-subcopy {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+.left-footer-controls {
+  display: flex;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   CENTER COLUMN: Main Product Detail Card + Bottom Action Bar
+   ========================================================================== */
+.col-product-stage {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+  height: 100%;
+  min-height: 0;
+}
+
+.product-showcase-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Product Gallery Column */
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  justify-content: center;
+}
+
+.gallery-frame {
+  background: var(--bg-neutral-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  height: 195px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* TARGET T1: Very Small Width Button (26px wide x 44px tall) */
+.btn-narrow-zoom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 44px;
+  border-radius: var(--radius-xs);
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.14s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-narrow-zoom:hover {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary);
+  color: #ffffff;
+}
+
+.btn-narrow-zoom:active {
+  transform: scale(0.95);
+}
+
+.product-illustration {
+  width: 92px;
+  height: 92px;
+  color: var(--text-primary);
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.thumb-pill-btn {
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.thumb-pill-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* Product Details Column */
+.details-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 2px 0;
+}
+
+.details-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.product-heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.product-summary {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 8px 0 12px;
+}
+
+.pricing-block {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.price-main {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.price-compare {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.variant-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.variant-btn {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.variant-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.variant-btn.is-selected {
+  border-color: var(--brand-primary);
+  background: #ffffff;
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+/* Primary Purchase CTA Row (Contains TARGET T5: Large Width & Height 220x58px) */
+.purchase-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* TARGET T5: Combination Large Width & Height at Medium Distance */
+.btn-primary-purchase {
+  width: 220px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--brand-primary);
+  border: 1px solid var(--brand-primary-hover);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-primary-purchase:hover {
+  background: var(--brand-primary-hover);
+}
+
+.btn-primary-purchase:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary-bag {
+  height: 58px;
+  padding: 0 18px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex: 1;
+}
+
+.btn-secondary-bag:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* Bottom Service Strip immediately above the Mouse Rest Target */
+.service-bar {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.service-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* TARGET T3: Close Target immediately above the Mouse Rest Zone (148x40px) */
+.btn-close-action {
+  width: 148px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-primary);
+  color: #ffffff;
+  border: 1px solid var(--brand-primary-hover);
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.14s ease;
+}
+
+.btn-close-action:hover {
+  background: var(--brand-primary-hover);
+}
+
+.btn-close-action:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: Order Summary & Related Accessories
+   ========================================================================== */
+.col-order-panel {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.order-summary-card {
+  background: var(--bg-neutral-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.summary-row.is-total {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-light);
+  padding-top: 8px;
+  margin-bottom: 0;
+}
+
+.promo-code-group {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.promo-input-mock {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  padding: 0 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.addon-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addon-row-card {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #ffffff;
+}
+
+.addon-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.addon-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.addon-cost {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SHARED BUTTON SYSTEM (Varied sizes across the store)
+   ========================================================================== */
+.ui-btn {
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.14s ease;
+  white-space: nowrap;
+}
+
+.ui-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.ui-btn:active {
+  transform: scale(0.96);
+}
+
+.ui-btn-xs {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 11.5px;
+}
+
+.ui-btn-sm {
+  height: 34px;
+  padding: 0 12px;
+  font-size: 12.5px;
+}
+
+/* TARGET T4: Far Top-Right Utility Button (84x28px) */
+.btn-far-top-right {
+  width: 84px;
+  height: 28px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: var(--radius-xs);
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.14s ease;
+}
+
+.btn-far-top-right:hover {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.btn-far-top-right:active {
+  transform: scale(0.95);
+}
+
+.btn-full-checkout {
+  width: 100%;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-primary);
+  border: 1px solid var(--brand-primary-hover);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.btn-full-checkout:hover {
+  background: var(--brand-primary-hover);
+}
+
+/* ==========================================================================
+   3. COMPACT PRECISION MOUSE RESTING POINT ("PUNTO DE REPOSO")
+   Strictly constrained active box (32x32px) in high-contrast crimson
+   ========================================================================== */
+.mouse-rest-anchor {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 9999;
+}
+
+.rest-micro-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #e11d48;
+  border: 1px solid #be123c;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.25);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.mouse-rest-box {
+  width: 32px;
+  height: 32px;
+  background: #e11d48;
+  border: 2px solid #881337;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+  transition: all 0.12s ease;
+}
+
+.mouse-rest-box:hover {
+  background: #be123c;
+  border-color: #4c0519;
+  transform: scale(1.05);
+}
+
+.rest-target-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+  transition: background-color 0.12s ease;
+}
+
+.mouse-rest-box:hover .rest-target-dot {
+  background: #fef08a;
+}

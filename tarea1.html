@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verde &amp; Co. — Tarea 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="store-app">
+    <!-- TOP E-COMMERCE NAVBAR -->
+    <header class="navbar">
+      <div class="navbar-left">
+        <a href="index.html" class="btn-back-hub">← Volver al Menú</a>
+        <div class="store-brand">
+          <span class="brand-leaf-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+          </span>
+          <span>Verde &amp; Co.</span>
+        </div>
+      </div>
+
+      <div class="navbar-search">
+        <span class="search-placeholder-text">Buscar productos...</span>
+        <button type="button" class="ui-btn ui-btn-xs" id="btn-buscar-top">Buscar</button>
+      </div>
+
+      <div class="navbar-actions">
+        <button type="button" class="ui-btn ui-btn-sm" id="btn-historial">Mis Pedidos</button>
+        <button type="button" class="ui-btn ui-btn-sm" id="btn-guardados">Favoritos</button>
+        <!-- OBJETIVO TAREA 4: Botón Lejano en Esquina Superior Derecha (84x28 px) -->
+        <button type="button" class="btn-far-top-right" id="btn-rastrear-envio">Rastrear</button>
+      </div>
+    </header>
+
+    <!-- MAIN 3-COLUMN E-COMMERCE WORKSPACE -->
+    <main class="store-workspace">
+      <!-- LEFT COLUMN: Categories + Tall Vertical Coupon Button -->
+      <aside class="col-departments">
+        <div>
+          <h2 class="section-overline">Categorías</h2>
+          <div class="dept-list">
+            <button type="button" class="dept-item-btn is-active" id="btn-cat-audio">
+              <span>Té &amp; Infusiones</span>
+            </button>
+            <button type="button" class="dept-item-btn" id="btn-cat-teclados">
+              <span>Cuidado Personal</span>
+            </button>
+            <button type="button" class="dept-item-btn" id="btn-cat-monitores">
+              <span>Hogar &amp; Cocina</span>
+            </button>
+            <button type="button" class="dept-item-btn" id="btn-cat-streaming">
+              <span>Accesorios</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="member-vertical-card">
+          <!-- OBJETIVO TAREA 2: Botón Muy Alto en el lateral izquierdo (48px ancho x ~190px alto) -->
+          <button type="button" class="btn-tall-voucher" id="btn-cupon-lateral">
+            <span class="vertical-voucher-text">ACTIVAR CUPÓN ECO 25%</span>
+          </button>
+
+          <div class="member-promo-details">
+            <div>
+              <p class="promo-headline">25% de descuento en tu primera compra</p>
+              <p class="promo-subcopy">
+                Activa el cupón lateral antes de finalizar el pedido para aplicar el descuento.
+              </p>
+            </div>
+            <button type="button" class="ui-btn ui-btn-xs" id="btn-ver-terminos">Ver condiciones</button>
+          </div>
+        </div>
+
+        <div class="left-footer-controls">
+          <button type="button" class="ui-btn ui-btn-sm" style="flex: 1;" id="btn-limpiar-filtros">Limpiar</button>
+          <button type="button" class="ui-btn ui-btn-sm" style="flex: 1;" id="btn-moneda">USD $</button>
+        </div>
+      </aside>
+
+      <!-- CENTER COLUMN: Main Product Showcase + Bottom Service Strip -->
+      <section class="col-product-stage">
+        <article class="product-showcase-card">
+          <div class="gallery-column">
+            <div class="gallery-frame">
+              <!-- OBJETIVO TAREA 1: Botón con Ancho Muy Pequeño (26x44 px) -->
+              <button type="button" class="btn-narrow-zoom" id="btn-zoom-ficha" title="Ampliar imagen">
+                +
+              </button>
+
+              <svg class="product-illustration" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                <line x1="6" x2="6" y1="2" y2="4"></line>
+                <line x1="10" x2="10" y1="2" y2="4"></line>
+                <line x1="14" x2="14" y1="2" y2="4"></line>
+              </svg>
+            </div>
+
+            <div class="gallery-thumbs">
+              <button type="button" class="thumb-pill-btn" id="btn-vista-frontal">Vista 1</button>
+              <button type="button" class="thumb-pill-btn" id="btn-vista-perfil">Vista 2</button>
+              <button type="button" class="thumb-pill-btn" id="btn-vista-estuche">Vista 3</button>
+            </div>
+          </div>
+
+          <div class="details-column">
+            <div>
+              <div class="details-top-meta">
+                <button type="button" class="ui-btn ui-btn-xs" id="btn-compartir-sku">Compartir</button>
+              </div>
+
+              <h1 class="product-heading">Té Matcha Orgánico en Polvo</h1>
+              <p class="product-summary">
+                Té verde finamente molido de sabor suave y textura cremosa, ideal para preparar
+                bebidas calientes o frías en cualquier momento del día.
+              </p>
+
+              <div class="pricing-block">
+                <span class="price-main">$38.00</span>
+                <span class="price-compare">$49.00</span>
+                <button type="button" class="ui-btn ui-btn-xs" id="btn-calcular-cuotas">Ver cuotas</button>
+              </div>
+
+              <div class="variant-group">
+                <button type="button" class="variant-btn is-selected" id="btn-color-titanio">50 g</button>
+                <button type="button" class="variant-btn" id="btn-color-obsidiana">100 g</button>
+                <button type="button" class="variant-btn" id="btn-color-plata">200 g</button>
+              </div>
+            </div>
+
+            <!-- Primary Purchase Row -->
+            <div class="purchase-cta-group">
+              <!-- OBJETIVO TAREA 5: Botón Grande en Ancho y Alto a Distancia Media (220x58 px) -->
+              <button type="button" class="btn-primary-purchase" id="btn-comprar-ahora">
+                <span>Comprar Ahora</span>
+              </button>
+
+              <button type="button" class="btn-secondary-bag" id="btn-agregar-carrito">
+                Añadir al Carrito
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bottom Service Toolbar immediately above the Mouse Rest Box -->
+        <div class="service-bar">
+          <div class="service-cluster">
+            <button type="button" class="ui-btn ui-btn-sm" id="btn-comparar-modelo">Comparar</button>
+            <button type="button" class="ui-btn ui-btn-sm" id="btn-ficha-pdf">Detalles</button>
+          </div>
+
+          <!-- OBJETIVO TAREA 3: Botón Muy Cercano al Punto de Reposo del Mouse (148x40 px) -->
+          <button type="button" class="btn-close-action" id="btn-envio-express">
+            Simular Envío
+          </button>
+
+          <div class="service-cluster">
+            <button type="button" class="ui-btn ui-btn-sm" id="btn-verificar-tienda">Disponibilidad</button>
+            <button type="button" class="ui-btn ui-btn-sm" id="btn-soporte-chat">Ayuda</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Order Summary & Related Products -->
+      <aside class="col-order-panel">
+        <div>
+          <h2 class="section-overline">Resumen de Compra</h2>
+          <div class="order-summary-card">
+            <div class="summary-row">
+              <span>Subtotal (1 producto)</span>
+              <span>$38.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Envío estándar</span>
+              <span>Gratis</span>
+            </div>
+            <div class="summary-row is-total">
+              <span>Total</span>
+              <span>$38.00</span>
+            </div>
+          </div>
+
+          <div class="promo-code-group">
+            <div class="promo-input-mock">Código de descuento</div>
+            <button type="button" class="ui-btn ui-btn-xs" style="height: 32px;" id="btn-validar-codigo">Aplicar</button>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-overline">Productos Relacionados</h2>
+          <div class="addon-stack">
+            <div class="addon-row-card">
+              <div class="addon-info">
+                <span class="addon-title">Batidor de Bambú</span>
+                <span class="addon-cost">$16.00</span>
+              </div>
+              <button type="button" class="ui-btn ui-btn-xs" id="btn-add-cable">Agregar</button>
+            </div>
+
+            <div class="addon-row-card">
+              <div class="addon-info">
+                <span class="addon-title">Cuchara Medidora</span>
+                <span class="addon-cost">$7.00</span>
+              </div>
+              <button type="button" class="ui-btn ui-btn-xs" id="btn-add-soporte">Agregar</button>
+            </div>
+
+            <div class="addon-row-card">
+              <div class="addon-info">
+                <span class="addon-title">Taza de Cerámica</span>
+                <span class="addon-cost">$24.00</span>
+              </div>
+              <button type="button" class="ui-btn ui-btn-xs" id="btn-add-garantia">Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-full-checkout" id="btn-pago-rapido">
+          Confirmar Pedido
+        </button>
+      </aside>
+    </main>
+
+    <!-- FIXED COMPACT MOUSE RESTING POINT (32x32px exact origin) -->
+    <div class="mouse-rest-anchor">
+      <span class="rest-micro-label">Punto de Reposo</span>
+      <div class="mouse-rest-box" id="zona-reposo-mouse" title="Punto de Reposo">
+        <span class="rest-target-dot"></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
