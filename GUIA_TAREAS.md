@@ -8,4 +8,4 @@ Tarea 3: Botón `Simular Envío` barra inferior central, justo encima del Punto 
 
 Tarea 4: Botón `Rastrear` esquina superior derecha de la barra superior.
 
-Tarea 5: Botón `Comprar Ahora` centro de la ficha del producto.
+Tarea 5: Botón `Buscar` barra de busqueda superior.
